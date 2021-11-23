@@ -61,7 +61,9 @@ function ListCard(props) {
         setText(event.target.value);
     }
 
-    function open(){
+    function open(
+
+    ){
         event.stopPropagation();
         dropped = !dropped;
     }
