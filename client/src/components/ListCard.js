@@ -5,7 +5,10 @@ import Box from '@mui/material/Box';
 import ListItem from '@mui/material/ListItem';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
+import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
+import WorkSpaceScreen from "./WorkspaceScreen";
+import WorkspaceScreen from './WorkspaceScreen';
 
 /*
     This is a card in our list of top 5 lists. It lets select
@@ -19,6 +22,7 @@ function ListCard(props) {
     const [editActive, setEditActive] = useState(false);
     const [text, setText] = useState("");
     const { idNamePair } = props;
+    let dropped = false;
 
     function handleLoadList(event, id) {
         if (!event.target.disabled) {
@@ -57,6 +61,21 @@ function ListCard(props) {
         setText(event.target.value);
     }
 
+    function open(){
+        event.stopPropagation();
+        dropped = !dropped;
+    }
+
+    function drr() {
+        if(!dropped){
+        return null;
+        }
+        else
+        {
+            return <WorkSpaceScreen/>
+        }
+    }
+
     let cardElement =
         <ListItem
             id={idNamePair._id}
@@ -84,6 +103,12 @@ function ListCard(props) {
                     }} aria-label='delete'>
                         <DeleteIcon style={{fontSize:'48pt'}} />
                     </IconButton>
+                </Box>
+                <Box>
+                    <Button onClick = {open}>has</Button>
+                </Box>
+                <Box>
+                    {drr()}
                 </Box>
         </ListItem>
 

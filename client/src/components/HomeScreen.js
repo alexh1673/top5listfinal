@@ -48,7 +48,7 @@ const HomeScreen = () => {
             <Button><HomeIcon/></Button>
             <Button><HomeIcon/></Button>
             <Button><HomeIcon/></Button>
-            <TextField label = "Search"></TextField>
+            <TextField label = "Search" style = {{width : "60%"}}></TextField>
             <div id="list-selector-list">
                 {
                     listCard
